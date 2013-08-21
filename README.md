@@ -1,10 +1,10 @@
 Google Glass Presentation
 =========
 
-(probably with reveal)
-===
+==(probably with reveal)
 
 This is the actual presentation part . . . doing it this way so I can run it with a url something like this:
+
 
 github.com/tooshel/glasspres
 
