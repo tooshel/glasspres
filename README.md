@@ -1,4 +1,8 @@
 glasspres
 =========
 
-Glass presentation and maybe a demo
+This is the actual presentation part . . . doing it this way so I can run it with a url something like this:
+
+github.com/tooshel/glasspres
+
+
