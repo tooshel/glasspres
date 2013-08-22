@@ -38,4 +38,4 @@ $base_url = "http://glasspres.azurewebsites.net";
 //Redirect URI = http://glasspres.azurewebsites.net/oauth2callback
 
 // This should be writable by your web server's user
-$sqlite_database = "/db/database.sqlite";
+$sqlite_database = "\db\database.sqlite";
