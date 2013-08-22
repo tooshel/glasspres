@@ -63,7 +63,7 @@ function init_db() {
   $db = new PDO($sqlite_database);
   $test_query = "select count(*) from sqlite_master where name = 'credentials'";
 
-  if ($db->querySingle($test_query) == 0) {
+  if ($db->exec($test_query) == 0) {
     $create_table = "create table credentials (userid text not null unique, " .
         "credentials text not null);";
     $db->exec($create_table);
