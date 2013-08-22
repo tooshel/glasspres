@@ -27,7 +27,9 @@
 
 $api_client_id = "195774096493-ksu5q3s2l5u33r01q5negi7m7pg1b0ae.apps.googleusercontent.com";
 $api_client_secret = "TCXFumwWvNagKIA9xXLKxP5C";
-$api_simple_key = "AIzaSyAkI5qTunLUxkVkBZA1VZbjCIg-v1GCMmI";
+
+//new server one
+$api_simple_key = "AIzaSyC8_FQTSR7aQY5KWCpsfrY6hx4eJH5-Etk";
 
 //$base_url = "http://glasspres.azurewebsites.net/mirror-quickstart.php";
 
