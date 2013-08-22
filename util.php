@@ -26,8 +26,8 @@ function store_credentials($user_id, $credentials) {
   $db = init_db();
   //$user_id = SQLite3::escapeString(strip_tags($user_id));
   //$credentials = SQLite3::escapeString(strip_tags($credentials));
-  $user_id = strip_tags($user_id);
-  $credentials = strip_tags($credentials);
+  $user_id = PDO::quote(strip_tags($user_id));
+  $credentials = PDO::quote(strip_tags($credentials));
 
   $insert = "insert or replace into credentials values ('$user_id', '$credentials')";
   $db->exec($insert);
@@ -37,7 +37,7 @@ function store_credentials($user_id, $credentials) {
 function get_credentials($user_id) {
   $db = init_db();
   //$user_id = SQLite3::escapeString(strip_tags($user_id));
-  $user_id = strip_tags($user_id);
+  $user_id = PDO::quote(strip_tags($user_id));
 
   $query = $db->query("select * from credentials where userid = '$user_id'");
 
