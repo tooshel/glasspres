@@ -31,6 +31,8 @@ $api_simple_key = "AIzaSyAkI5qTunLUxkVkBZA1VZbjCIg-v1GCMmI";
 
 $base_url = "http://glasspres.azurewebsites.net/mirror-quickstart.php";
 
+$base_url = "http://glasspres.azurewebsites.net/";
+
 //Redirect URI = http://glasspres.azurewebsites.net/oauth2callback
 
 // This should be writable by your web server's user
