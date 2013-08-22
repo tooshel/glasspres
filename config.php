@@ -18,11 +18,20 @@
 
 // TODO: You must configure these fields for the starter project to function.
 // Visit https://developers.google.com/glass/getting-started to learn more
-$api_client_id = "API_CLIENT_ID";
-$api_client_secret = "API_CLIENT_SECRET";
-$api_simple_key = "API_KEY";
+// $api_client_id = "API_CLIENT_ID";
+// $api_client_secret = "API_CLIENT_SECRET";
+// $api_simple_key = "API_KEY";
 
-$base_url = "http://localhost/mirror-quickstart-php";
+// $base_url = "http://localhost/mirror-quickstart-php";
+
+
+$api_client_id = "195774096493-ksu5q3s2l5u33r01q5negi7m7pg1b0ae.apps.googleusercontent.com";
+$api_client_secret = "TCXFumwWvNagKIA9xXLKxP5C";
+$api_simple_key = "AIzaSyAkI5qTunLUxkVkBZA1VZbjCIg-v1GCMmI";
+
+$base_url = "http://glasspres.azurewebsites.net/mirror-quickstart-php";
+
+//Redirect URI = http://glasspres.azurewebsites.net/oauth2callback
 
 // This should be writable by your web server's user
-$sqlite_database = "/tmp/database.sqlite";
+$sqlite_database = "/db/database.sqlite";
