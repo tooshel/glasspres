@@ -41,7 +41,7 @@ function get_credentials($user_id) {
 
   $query = $db->query("select * from credentials where userid = '$user_id'");
 
-  $row = $query->fetchArray(SQLITE3_ASSOC);
+  $row = $query->fetch(PDO::FETCH_ASSOC);
   return $row['credentials'];
 }
 
@@ -51,7 +51,7 @@ function list_credentials() {
   // Must use explicit select instead of * to get the rowid
   $query = $db->query('select userid, credentials from credentials');
   $result = array();
-  while ($singleResult = $query->fetchArray(SQLITE3_ASSOC)){
+  while ($singleResult = $query->fetch(PDO::FETCH_ASSOC)){
     array_push($result,$singleResult);
   }
   return $result;
