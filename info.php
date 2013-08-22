@@ -3,5 +3,5 @@
 phpinfo();
 
 
-$db = new SQLite3("db.sqlite");
+$dbhandle = new PDO('sqlite:sqlitedb.db');
 ?>
