@@ -59,7 +59,8 @@ function list_credentials() {
 function init_db() {
   global $sqlite_database;
 
-  $db = new SQLite3($sqlite_database);
+  //$db = new SQLite3($sqlite_database);
+  $db = new PDO($sqlite_database);
   $test_query = "select count(*) from sqlite_master where name = 'credentials'";
 
   if ($db->querySingle($test_query) == 0) {
