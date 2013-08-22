@@ -3,5 +3,5 @@
 phpinfo();
 
 
-$db = new SQLite("/db/db.sqlite");
+$db = new SQLite3("db.sqlite");
 ?>
