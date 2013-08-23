@@ -24,14 +24,14 @@ require_once 'google-api-php-client/src/contrib/Google_MirrorService.php';
 
 function store_credentials($user_id, $credentials) {
   $db = init_db();
-  //$user_id = SQLite3::escapeString(strip_tags($user_id));
-  //$credentials = SQLite3::escapeString(strip_tags($credentials));
   $user_id = strip_tags($user_id);
   $credentials = strip_tags($credentials);
 
-  $insert = "insert or replace into credentials values ('$user_id', '$credentials')";
-
-  $db->exec($insert);
+  $sql = "insert or replace into credentials values (:user_id, :credentials)";
+  $rs = $db->prepare($sql);
+  $rs->bindParam(':user_id', $user_id);
+  $rs->bindParam(':credentials', $credentials);
+  $rs->execute();
 
 }
 
