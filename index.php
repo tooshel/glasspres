@@ -38,6 +38,56 @@ $mirror_service = new Google_MirrorService($client);
 
 // But first, handle POST data from the form (if there is any)
 switch ($_POST['operation']) {
+  case 'insertPresentationItem':
+    $new_timeline_item = new Google_TimelineItem();
+    $message = $_POST['message'] . "<br>". "http://tooshel.github.com/glasspres/"
+    $new_timeline_item->setText();
+
+    $notification = new Google_NotificationConfig();
+    $notification->setLevel("DEFAULT");
+    $new_timeline_item->setNotification($notification);
+
+    if (isset($_POST['imageUrl']) && isset($_POST['contentType'])) {
+      insert_timeline_item($mirror_service, $new_timeline_item,
+        $_POST['contentType'], file_get_contents($_POST['imageUrl']));
+    } else {
+      insert_timeline_item($mirror_service, $new_timeline_item, null, null);
+    }
+
+    $menu_items = array();
+
+    // A couple of built in menu items
+    $menu_item = new Google_MenuItem();
+    $menu_item->setAction("REPLY");
+    array_push($menu_items, $menu_item);
+
+    $menu_item = new Google_MenuItem();
+    $menu_item->setAction("READ_ALOUD");
+    array_push($menu_items, $menu_item);
+    $new_timeline_item->setSpeakableText("What did you eat? Bacon?");
+
+    $menu_item = new Google_MenuItem();
+    $menu_item->setAction("SHARE");
+    array_push($menu_items, $menu_item);
+
+    // A custom menu item
+    $custom_menu_item = new Google_MenuItem();
+    $custom_menu_value = new Google_MenuValue();
+    $custom_menu_value->setDisplayName("Drill Into");
+    $custom_menu_value->setIconUrl($service_base_url . "/static/images/drill.png");
+
+    $custom_menu_item->setValues(array($custom_menu_value));
+    $custom_menu_item->setAction("CUSTOM");
+    // This is how you identify it on the notification ping
+    $custom_menu_item->setId("safe-for-later");
+    array_push($menu_items, $custom_menu_item);
+
+    $new_timeline_item->setMenuItems($menu_items);
+
+    insert_timeline_item($mirror_service, $new_timeline_item, null, null);
+
+    $message = "Inserted a PRESENTAION timeline item";
+    break;
   case 'insertItem':
     $new_timeline_item = new Google_TimelineItem();
     $new_timeline_item->setText($_POST['message']);
@@ -171,7 +221,7 @@ foreach ($subscriptions->getItems() as $subscription) {
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">Glassware Starter Project: PHP Edition</a>
+      <a class="brand" href="#">Glassware Starter Project: PHP Edition (on Azure!)</a>
     </div>
   </div>
 </div>
@@ -254,6 +304,20 @@ foreach ($subscriptions->getItems() as $subscription) {
         these controls to insert more items into your timeline. Learn more about
         the timeline APIs
         <a href="https://developers.google.com/glass/timeline">here</a>.</p>
+
+      <form method="post">
+        <input type="hidden" name="operation" value="insertPresentationItem">
+        <input type="hidden" name="message" value="Chipotle says hi!">
+        <input type="hidden" name="imageUrl" value="<?php echo $base_url .
+            "/static/images/chipotle-tube-640x360.jpg" ?>">
+        <input type="hidden" name="contentType" value="image/jpeg">
+
+        <button class="btn btn-block" type="submit">Insert a picture
+          <img class="button-icon" src="<?php echo $base_url .
+             "/static/images/chipotle-tube-640x360.jpg" ?>">
+        </button>
+      </form>
+
 
 
       <form method="post">
