@@ -36,11 +36,12 @@
 			<div class="slides">
 
 				<section>
+					<!-- <sup style="display:inline-block;font-size:20%;margin-bottom:20px;">TM</sup> -->
 					<h1>Google Glass:</h1>
 					<h2>Fact and Fiction</h2>
 					<h3>from a Zealot</h3>
 
-					<img src="images/zealot.jpg">
+					<img style="border:0px solid red; background:none; box-shadow:none;padding:0;margin:0" src="images/zealot-trans.png">
 
 
 					<aside class="notes">
@@ -54,17 +55,27 @@
  -->
 				</section>
 
-				<section>
+				<section data-background="images/bg-earthy.jpg">
 					<h1>Who dis?</h1>
-					<img height="250" src="images/dressedup.jpg">
-					<p style="font-size:50%;">Sheldon McGee has been a web developer since having to do things the REALLY hard way (Cold Fusion, ASP) before things got easier (PHP, ASP.NET) and then hard again (Rails, Node). He’s been a fan of Google API’s since before there were any and all Google hackers were really just map hackers. He has passion for building in the physical world too and uses maple and alder (no pine! except in plywood sometimes) whenever he can to make furniture for around his house (dresser bed, headboard, entertainment center, cabinets, etc). He also dabbles with Arduino and Raspberry Pi to get his embedded fix. AFOL and SNOT building (i.e. Technic). Oh, and he’s been to every Google I/O and has been wearing Google Glass almost every day since May no matter how much his “friends” make fun of him.</p>
+					<img height="200" src="images/dressedup.jpg">
+					<p style="font-size:60%;">
+						Web Developer<br>
+						Build in the physical world with wood<br>
+						Arduino and Pi<br>
+						AFOL<br>
+						Been into Google longer than you<br>
+					</p>
+					<p style="font-size:30%;">Sheldon McGee has been a web developer since having to do things the REALLY hard way (Cold Fusion, ASP) before things got easier (PHP, ASP.NET) and then hard again (Rails, Node). He’s been a fan of Google API’s since before there were any and all Google hackers were really just map hackers. He has passion for building in the physical world too and uses maple and alder (no pine! except in plywood sometimes) whenever he can to make furniture for around his house (dresser bed, headboard, entertainment center, cabinets, etc). He also dabbles with Arduino and Raspberry Pi to get his embedded fix. AFOL and SNOT building (i.e. Technic). Oh, and he’s been to every Google I/O and has been wearing Google Glass almost every day since May no matter how much his “friends” make fun of him.</p>
 
 					<aside class="notes">
+						Really liked my bio from the website so it's here too. 
+						<br>Can't believe people ARN'T into Google as much anymore
+						<br>Yeah, yeah, you hate google now, you are just here for the prizes.
 					</aside>
 					
 				</section>
 
-				<section>
+				<section data-background="images/bg-earthy.jpg">
 					<h2>Really a zealot?</h2>
 					<blockquote cite="http://starcraft.wikia.com/wiki/Zealot">Zealots are taught to hate their enemies with a white hot passion and to hunt them down without mercy.</blockquote>
 
@@ -75,7 +86,7 @@
 				</section>
 
 
-				<section>
+				<section data-background="images/bg-bluepurpleplanet.jpg">
 					<h1>People ask questions</h1>
 
 					<p>These bullets are for me so don't read them (I don't want to be one of those presenters that just reads the slides).
@@ -93,7 +104,7 @@
 
 				</section>
 
-				<section>
+				<section data-background="images/bg-bluepurpleplanet.jpg">
 					<h1>No!</h1>
 					<p>Is it recording me right now?</p>
 					<p>Thanks alot funny people</p>
@@ -105,7 +116,7 @@
 				</section>
 
 				<section>
-					<h2>What is it?</h2>
+					<h1>What is it?</h1>
 					<h3>My most frequent answer:</h3>
 					<blockquote cite="">Google Glass is really just an Android phone strapped to the side of my head, but without the "phone" part and without a screen so that makes interacting with it very different than what we're used to. --Sheldon McGee</blockquote>
 					<aside class="notes">
@@ -118,19 +129,24 @@
 					<h1>Hardware</h1>
 					<img height="150" src="images/whiteglass.jpg">
 					<p>Has a processor and memory and battery<br>(just like toasters do these days)
-					<h3>New!</h3>
-					<ul>
-						<li>The "glass" display
-						<li>The bone conducting speaker
-						<li>Touchpad (not new but not similar to a phone either)
-					</ul>
-					<h4>Missing? That's later.</h4>
 
 					<aside class="notes">
 						So we all get the HARDWARE part, that's easy because we also have it in our pockets, (processor, memory, battery) and the new stuff, (the glass, the speaker, the touchpad)
 					</aside>
 
 				</section>
+
+				<section>
+					<h1>New!</h1>
+					<ul>
+						<li>The glass prismy thing display <sup>TM</sup>
+						<li>The bone conducting speaker
+						<li>Touchpad (not new but not similar to a phone either)
+					</ul>
+					<p>&nbsp;</p>
+					<h4>Missing? That's later.</h4>
+				</section>
+
 
 				<section>
 					<h1>Software</h1>
@@ -167,7 +183,7 @@
 
 
 
-				<section>
+				<section data-background="#000000">
 					<h2>Missing Hardware</h2>
 					<ul>
 						<li>Virtual keyboard!
@@ -183,13 +199,18 @@
 				<section>
 					<h1>Speaking of which!</h1>
 					<p>Writing your own software
+					<aside class="notes">
+						(don't leave this up long)
+					</aside>
 
 				</section>
 
 				<section>
 					<h1>Mirror API</h1>
-					<p>Only official way . . . but that shouldn't discourage you.
+					<p>Only official way (for now)
 					<h3>Look what I did!</h3>
+
+					<a target="_blank" href="http://glasspres.azurewebsites.net/">http://glasspres.azurewebsites.net/</a>
 					<aside class="notes">
 						Too bad I can't show you on the big screen. 
 					</aside>
@@ -197,8 +218,13 @@
 
 				<section>
 					<h1>Sideload an APK</h1>
+					<blockquote cite="https://developers.google.com/glass/gdk">We are actively working on a Glass Development Kit (GDK) that allows you to build Glassware in the form of APKs.</blockquote>
 
-
+					<aside class="notes">
+						So it&#39;s not &quot;breaking your warranty&quot;
+						<br>
+						Glass is built on the Android 4.0.4 platform, so you can write APKs using the standard Android SDK (API Level 15) and sideload them onto Glass.
+					</aside>
 				</section>
 
 
