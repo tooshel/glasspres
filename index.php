@@ -331,7 +331,7 @@ foreach ($subscriptions->getItems() as $subscription) {
         <input type="hidden" name="imageUrl" value="<?php echo $base_url .
             "/static/images/intrepid.jpg" ?>">
         <input type="hidden" name="contentType" value="image/jpeg">
-        <input type="hidden" name="url" value="http://lander.planetarydomination.com/glass/">
+        <input type="hidden" name="url" value="http://lander.planetarydomination.com/glass/control/">
         <button class="btn btn-block" type="submit">Insert Lander Item</button>
       </form>
 
