@@ -38,7 +38,7 @@ $mirror_service = new Google_MirrorService($client);
 
 // But first, handle POST data from the form (if there is any)
 switch ($_POST['operation']) {
-  case 'insertPresentationItem':
+  case 'insertItem':
     $new_timeline_item = new Google_TimelineItem();
     $message = $_POST['message'];
     $new_timeline_item->setText($message);
@@ -58,21 +58,22 @@ switch ($_POST['operation']) {
       array_push($menu_items, $menu_item);
     }
 
-    // A couple of built in menu items
     $menu_item = new Google_MenuItem();
-    $menu_item->setAction("REPLY");
+    $menu_item->setAction("SHARE");
+    array_push($menu_items, $menu_item);
+
+    $menu_item = new Google_MenuItem();
+    $menu_item->setAction("DELETE");
     array_push($menu_items, $menu_item);
 
     $menu_item = new Google_MenuItem();
     $menu_item->setAction("READ_ALOUD");
     array_push($menu_items, $menu_item);
-    $new_timeline_item->setSpeakableText("What did you eat? Bacon?");
+    $new_timeline_item->setSpeakableText($message);
 
     $menu_item = new Google_MenuItem();
-    $menu_item->setAction("SHARE");
+    $menu_item->setAction("REPLY");
     array_push($menu_items, $menu_item);
-
-     
 
     // A custom menu item
     $custom_menu_item = new Google_MenuItem();
@@ -96,24 +97,24 @@ switch ($_POST['operation']) {
       insert_timeline_item($mirror_service, $new_timeline_item, null, null);
     }
 
-    $message = "Inserted a PRESENTAION timeline item";
+    $message = "Inserted a timeline item";
     break;
-  case 'insertItem':
-    $new_timeline_item = new Google_TimelineItem();
-    $new_timeline_item->setText($_POST['message']);
+  // case 'insertItem':
+  //   $new_timeline_item = new Google_TimelineItem();
+  //   $new_timeline_item->setText($_POST['message']);
 
-    $notification = new Google_NotificationConfig();
-    $notification->setLevel("DEFAULT");
-    $new_timeline_item->setNotification($notification);
+  //   $notification = new Google_NotificationConfig();
+  //   $notification->setLevel("DEFAULT");
+  //   $new_timeline_item->setNotification($notification);
 
-    if (isset($_POST['imageUrl']) && isset($_POST['contentType'])) {
-      insert_timeline_item($mirror_service, $new_timeline_item, $_POST['contentType'], file_get_contents($_POST['imageUrl']));
-    } else {
-      insert_timeline_item($mirror_service, $new_timeline_item, null, null);
-    }
+  //   if (isset($_POST['imageUrl']) && isset($_POST['contentType'])) {
+  //     insert_timeline_item($mirror_service, $new_timeline_item, $_POST['contentType'], file_get_contents($_POST['imageUrl']));
+  //   } else {
+  //     insert_timeline_item($mirror_service, $new_timeline_item, null, null);
+  //   }
 
-    $message = "Timeline Item inserted!";
-    break;
+  //   $message = "Timeline Item inserted!";
+  //   break;
   case 'insertItemWithAction':
     $new_timeline_item = new Google_TimelineItem();
     $new_timeline_item->setText("What did you have for lunch?");
@@ -130,13 +131,13 @@ switch ($_POST['operation']) {
     array_push($menu_items, $menu_item);
 
     $menu_item = new Google_MenuItem();
+    $menu_item->setAction("SHARE");
+    array_push($menu_items, $menu_item);
+
+    $menu_item = new Google_MenuItem();
     $menu_item->setAction("READ_ALOUD");
     array_push($menu_items, $menu_item);
     $new_timeline_item->setSpeakableText("What did you eat? Bacon?");
-
-    $menu_item = new Google_MenuItem();
-    $menu_item->setAction("SHARE");
-    array_push($menu_items, $menu_item);
 
     // A custom menu item
     $custom_menu_item = new Google_MenuItem();
@@ -315,7 +316,7 @@ foreach ($subscriptions->getItems() as $subscription) {
         <a href="https://developers.google.com/glass/timeline">here</a>.</p>
 
       <form method="post">
-        <input type="hidden" name="operation" value="insertPresentationItem">
+        <input type="hidden" name="operation" value="insertItem">
         <input type="hidden" name="message" value="Presentation Site">
         <input type="hidden" name="imageUrl" value="<?php echo $base_url .
             "/static/images/zealot.jpg" ?>">
@@ -324,6 +325,15 @@ foreach ($subscriptions->getItems() as $subscription) {
         <button class="btn btn-block" type="submit">Insert Presentation Item</button>
       </form>
 
+      <form method="post">
+        <input type="hidden" name="operation" value="insertItem">
+        <input type="hidden" name="message" value="Intrepid Lander">
+        <input type="hidden" name="imageUrl" value="<?php echo $base_url .
+            "/static/images/intrepid.jpg" ?>">
+        <input type="hidden" name="contentType" value="image/jpeg">
+        <input type="hidden" name="url" value="http://lander.planetarydomination.com/glass/">
+        <button class="btn btn-block" type="submit">Insert Lander Item</button>
+      </form>
 
 
       <form method="post">
