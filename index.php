@@ -41,18 +41,12 @@ switch ($_POST['operation']) {
   case 'insertPresentationItem':
     $new_timeline_item = new Google_TimelineItem();
     $message = $_POST['message'] . "<br>". "http://tooshel.github.com/glasspres/";
-    $new_timeline_item->setText();
+    $new_timeline_item->setText($message);
 
     $notification = new Google_NotificationConfig();
     $notification->setLevel("DEFAULT");
     $new_timeline_item->setNotification($notification);
 
-    if (isset($_POST['imageUrl']) && isset($_POST['contentType'])) {
-      insert_timeline_item($mirror_service, $new_timeline_item,
-        $_POST['contentType'], file_get_contents($_POST['imageUrl']));
-    } else {
-      insert_timeline_item($mirror_service, $new_timeline_item, null, null);
-    }
 
     $menu_items = array();
 
@@ -84,7 +78,13 @@ switch ($_POST['operation']) {
 
     $new_timeline_item->setMenuItems($menu_items);
 
-    insert_timeline_item($mirror_service, $new_timeline_item, null, null);
+
+    if (isset($_POST['imageUrl']) && isset($_POST['contentType'])) {
+      insert_timeline_item($mirror_service, $new_timeline_item,
+        $_POST['contentType'], file_get_contents($_POST['imageUrl']));
+    } else {
+      insert_timeline_item($mirror_service, $new_timeline_item, null, null);
+    }
 
     $message = "Inserted a PRESENTAION timeline item";
     break;
@@ -97,8 +97,7 @@ switch ($_POST['operation']) {
     $new_timeline_item->setNotification($notification);
 
     if (isset($_POST['imageUrl']) && isset($_POST['contentType'])) {
-      insert_timeline_item($mirror_service, $new_timeline_item,
-        $_POST['contentType'], file_get_contents($_POST['imageUrl']));
+      insert_timeline_item($mirror_service, $new_timeline_item, $_POST['contentType'], file_get_contents($_POST['imageUrl']));
     } else {
       insert_timeline_item($mirror_service, $new_timeline_item, null, null);
     }
@@ -312,10 +311,7 @@ foreach ($subscriptions->getItems() as $subscription) {
             "/static/images/chipotle-tube-640x360.jpg" ?>">
         <input type="hidden" name="contentType" value="image/jpeg">
 
-        <button class="btn btn-block" type="submit">Insert a picture
-          <img class="button-icon" src="<?php echo $base_url .
-             "/static/images/chipotle-tube-640x360.jpg" ?>">
-        </button>
+        <button class="btn btn-block" type="submit">Insert Presentation Item</button>
       </form>
 
 
