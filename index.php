@@ -231,7 +231,7 @@ foreach ($subscriptions->getItems() as $subscription) {
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">Glassware Starter Project: PHP Edition (on Azure!)</a>
+      <a class="brand" href="/">Glassware Starter Project: PHP Edition (on Azure!)</a>
     </div>
   </div>
 </div>
