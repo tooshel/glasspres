@@ -40,7 +40,7 @@ $mirror_service = new Google_MirrorService($client);
 switch ($_POST['operation']) {
   case 'insertPresentationItem':
     $new_timeline_item = new Google_TimelineItem();
-    $message = $_POST['message'] . "<br>". "http://tooshel.github.com/glasspres/"
+    $message = $_POST['message'] . "<br>". "http://tooshel.github.com/glasspres/";
     $new_timeline_item->setText();
 
     $notification = new Google_NotificationConfig();
