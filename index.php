@@ -40,7 +40,7 @@ $mirror_service = new Google_MirrorService($client);
 switch ($_POST['operation']) {
   case 'insertPresentationItem':
     $new_timeline_item = new Google_TimelineItem();
-    $message = $_POST['message'] . "<br>". "http://tooshel.github.com/glasspres/";
+    $message = $_POST['message'];
     $new_timeline_item->setText($message);
 
     $notification = new Google_NotificationConfig();
@@ -49,6 +49,14 @@ switch ($_POST['operation']) {
 
 
     $menu_items = array();
+
+    if (isset($_POST['url'])) {
+      $menu_item = new Google_MenuItem();
+      $menu_item->setAction("VIEW_WEBSITE");
+      //$menu_item->setPayload("http://tooshel.github.io/glasspres/");
+      $menu_item->setPayload($_POST['url']);
+      array_push($menu_items, $menu_item);
+    }
 
     // A couple of built in menu items
     $menu_item = new Google_MenuItem();
@@ -63,6 +71,8 @@ switch ($_POST['operation']) {
     $menu_item = new Google_MenuItem();
     $menu_item->setAction("SHARE");
     array_push($menu_items, $menu_item);
+
+     
 
     // A custom menu item
     $custom_menu_item = new Google_MenuItem();
@@ -306,11 +316,11 @@ foreach ($subscriptions->getItems() as $subscription) {
 
       <form method="post">
         <input type="hidden" name="operation" value="insertPresentationItem">
-        <input type="hidden" name="message" value="Chipotle says hi!">
+        <input type="hidden" name="message" value="Presentation Site">
         <input type="hidden" name="imageUrl" value="<?php echo $base_url .
-            "/static/images/chipotle-tube-640x360.jpg" ?>">
+            "/static/images/zealot.jpg" ?>">
         <input type="hidden" name="contentType" value="image/jpeg">
-
+        <input type="hidden" name="url" value="http://tooshel.github.io/glasspres/#/">
         <button class="btn btn-block" type="submit">Insert Presentation Item</button>
       </form>
 
