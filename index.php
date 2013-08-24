@@ -327,12 +327,22 @@ foreach ($subscriptions->getItems() as $subscription) {
 
       <form method="post">
         <input type="hidden" name="operation" value="insertItem">
-        <input type="hidden" name="message" value="Intrepid Lander">
+        <input type="hidden" name="message" value="Intrepid Lander Sensor">
         <input type="hidden" name="imageUrl" value="<?php echo $base_url .
             "/static/images/intrepid.jpg" ?>">
         <input type="hidden" name="contentType" value="image/jpeg">
         <input type="hidden" name="url" value="http://lander.planetarydomination.com/glass/control/">
-        <button class="btn btn-block" type="submit">Insert Lander Item</button>
+        <button class="btn btn-block" type="submit">Insert Lander Sensor Item</button>
+      </form>
+
+      <form method="post">
+        <input type="hidden" name="operation" value="insertItem">
+        <input type="hidden" name="message" value="Intrepid Lander Game">
+        <input type="hidden" name="imageUrl" value="<?php echo $base_url .
+            "/static/images/intrepid.jpg" ?>">
+        <input type="hidden" name="contentType" value="image/jpeg">
+        <input type="hidden" name="url" value="http://lander.planetarydomination.com/glass/display/">
+        <button class="btn btn-block" type="submit">Insert Lander GAME Item</button>
       </form>
 
 
