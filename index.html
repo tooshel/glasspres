@@ -56,7 +56,7 @@
 				</section>
 
 				<section data-background="images/bg-earthy.jpg">
-					<h1>Who dis?</h1>
+					<h2>Who dis?</h2>
 					<img height="200" src="images/dressedup.jpg">
 					<p style="font-size:60%;">
 						Web Developer<br>
@@ -76,7 +76,7 @@
 				</section>
 
 				<section data-background="images/bg-earthy.jpg">
-					<h2>Really a zealot?</h2>
+					<h1>Really a zealot?</h1>
 					<blockquote cite="http://starcraft.wikia.com/wiki/Zealot">Zealots are taught to hate their enemies with a white hot passion and to hunt them down without mercy.</blockquote>
 
 					<aside class="notes">
@@ -116,9 +116,12 @@
 				</section>
 
 				<section>
-					<h1>What is it?</h1>
-					<h3>My most frequent answer:</h3>
-					<blockquote cite="">Google Glass is really just an Android phone strapped to the side of my head, but without the "phone" part and without a screen so that makes interacting with it very different than what we're used to. --Sheldon McGee</blockquote>
+					<h2>What is it?</h2>
+					<img height="150" src="images/prototyping.jpg">
+					<h4>My most frequent answer:</h4>
+					<blockquote style="font-size:70%;line-height:100%" cite="">Google Glass is really just an Android phone strapped to the side of my head, but without the "phone" part and without a screen so that makes interacting with it very different than what we're used to. --Sheldon McGee</blockquote>
+
+
 					<aside class="notes">
 
 					</aside>
@@ -149,7 +152,7 @@
 
 
 				<section>
-					<h1>Software</h1>
+					<h2>Software</h2>
 					<img height="150" src="images/okayglass.png">
 					<p>That it's running Android makes sense . . . but it certainly doens't LOOK like Android.
 
@@ -167,13 +170,14 @@
 
 				<section data-background="#007777">
 					<h2>How do you like it?</h2>
-					<p>Hard to answer in the 20 seconds I have until my daughter freaks out.</p>
-
+					<p>Hard to answer in the 20 seconds<br>I have until my daughter freaks out.</p>
+					<p>&nbsp;</p>
 					<h3>What I use it for</h3>
-						<p>Alerts
-						<p>Pictures/Video
-						<p>Sharing those
-
+						<ul>
+							<li>Alerts</li>
+							<li>Pictures/Video</li>
+							<li>Sharing</li>
+						</ul>
 
 					<aside class="notes">
 						Overall, I like it for a few reasons: I don&#39;t need to keep checking my phone (and I get all important notifications), easy to take pictures and video and post to Twitter/FB/Google+ (be nice if were all at the same time).
@@ -185,7 +189,7 @@
 				<section data-background="#007777">
 					<h2>How do you like it?</h2>
 
-					<h3>Annoy me</h3>
+					<h3>(Insanity)</h3>
 					<ul>
 						<li>Can't keep a solid data connection
 						<li>Can't connect to wifi that has a "welcome screen"
@@ -193,8 +197,6 @@
 						<li>Wish it was listening all the time like Moto X
 						<li>Not water proof
 					</ul>
-
-
 
 					<aside class="notes">
 						I have to turn bluetooth on and off
@@ -204,7 +206,16 @@
 
 				</section>
 
+				<section data-background="#007777">
+					<h2>30 seconds and I'm hooked</h2>
 
+					<iframe width="640" height="480" src="http://www.youtube.com/embed/HsahUEjJqXE?rel=0" frameborder="0" allowfullscreen></iframe>
+					<aside class="notes">
+						Close your eyes if you don't have kids or this isn't your kid
+						<br>This happend 4 days after I picked up Glass
+						<br>One moment makes it worth it
+					</aside>
+				</section>
 
 
 				<section data-background="#000000">
@@ -215,7 +226,7 @@
 						<li>Reversable!
 					</ul>
 					<h2>Missing Software</h2>
-						<p>Can't complain about this because I can write it myself (though I really want a way to add Tasks)
+						<p>Can't complain about this because I can write it myself<br>(I really want a way to add Tasks)
 
 				</section>
 
@@ -244,16 +255,53 @@
 				</section>
 
 				<section>
+					<h1>Mirror API</h1>
+					<blockquote cite="youtube video google io 2013">Mirror was intentionally dumb so that glassware could be made without having to worry about system resources. --Hyunyoung Song at the "Voiding Your Warranty: Hacking Glass" session at I/O 2013</blockquote>
+				</section>
+
+				<section>
+					<h1>Mirror API</h1>
+					<p>Glass Froger <a target="_blank" href="http://glassfrogger.com/">http://glassfrogger.com/</a>
+						<h3>How it works</h3>
+						<ul>
+							<li>used Mirror API to push a card to Google Glass
+							<li>The card loads this url <a target="_blank" href="http://www.glassfrogger.com/play/">http://www.glassfrogger.com/play/</a>. 
+							<li>It's a HTML5 site that looks at sensor data to determin a "jump".
+						</ul>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+
+				<section>
 					<h1>Sideload an APK</h1>
 					<blockquote cite="https://developers.google.com/glass/gdk">We are actively working on a Glass Development Kit (GDK) that allows you to build Glassware in the form of APKs.</blockquote>
 
 					<aside class="notes">
 						So it&#39;s not &quot;breaking your warranty&quot;
-						<br>
-						Glass is built on the Android 4.0.4 platform, so you can write APKs using the standard Android SDK (API Level 15) and sideload them onto Glass.
+						<br>Ability to get to all sensors and user data
+
+						<br>Glass is built on the Android 4.0.4 platform, so you can write APKs using the standard Android SDK (API Level 15) and sideload them onto Glass.
 					</aside>
 				</section>
 
+				<section>
+					<h1>Sideload an APK</h1>
+					<h2>Not hard if you've used ADB</h2>
+					<ul>
+						<li>Enable Debug mode in Glass UI</li>
+						<li>Install ADB and run a few commands</li>
+						<li>One of the commands install and another runs</li>
+						<li>If you don't want to have to be plugged in and using ADB to run APK<br>then get Launchy.apk and run it once from ADB
+					</ul>
+
+					<p>More on the video and <a target="_blank" href="http://appliedanalog.com/agw/?p=17">Applied Glassware</a>.</p>
+
+					<aside class="notes">
+
+					</aside>
+				</section>
 
 				<section>
 					<h2>How much?</h2>
@@ -289,6 +337,10 @@
 					<br><a target="_blank" href="https://developers.google.com/events/io/sessions/332704837">Great I/O session</a>
 					<br><a target="_blank" href="">This guy on the glass team</a>
 
+
+					<aside class="notes">
+						<br>Images from all over. Probably can't broadcast or Blizzard will shut you down.
+					</aside>
 
 				</section>
 
