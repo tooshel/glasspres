@@ -18,6 +18,9 @@
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
+		<!-- OVERRIDE -->
+		<link rel="stylesheet" href="css/custom.css">
+
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
@@ -75,14 +78,19 @@
 				</section>
 				
 				<section data-background="images/bg-stars.jpg">
-					<h1>Interarctive!</h1>
-					<h2>I can improvise?</h2>
+					<h1>Improvise!</h1>
 					<h3>Mention me: @tooshel</h3>
 					<h4>Suggested tweets:</h4>
 
-					<p>WOW! @tooshel is amazing. Good hire Google! Oh wait, he doesn't work there? What's wrong with you Google? cc: @marissamayer</p>
-					<p>Hey @tooshel, what's up with the Rudolph the Red-Nosed Reindeer look?</p>
-					<p>@tooshel . . . Y U something something (these are hard to make up but I wanted to have 10 examples listed)</p>
+					<small>
+					<ol class="superspacer">
+					<li>WOW! @tooshel is the best Developer Advocate since @paul_irish.
+						<br>Good hire Google! Wait, he doesn't work there? What the? cc: @marissamayer
+					<li>Hey @tooshel, stop recording us with Glass, you're making me nervous.
+					<li>That @tooshel really knows his stuff - explains the hair loss<br>(though hopefully the Rudolph the Red-Nose isn't because of an addiction)
+					<li>@tooshel . . . Y U something something (these are hard to make up<br>but I wanted to have 10 examples listed)
+					</ol>
+					</small>
 
 					<aside class="notes">
 						If all goes well I can show you the tweets.
@@ -403,6 +411,8 @@
 			</div>
 
 		</div>
+
+		<div class="footer_logo"><img src="images/2shel.png"> @tooshel</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
